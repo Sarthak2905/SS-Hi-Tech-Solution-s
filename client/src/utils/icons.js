@@ -1,0 +1,43 @@
+import {
+  Globe,
+  ShoppingCart,
+  LayoutDashboard,
+  Users,
+  Workflow,
+  Wrench,
+  Target,
+  Smartphone,
+  MessagesSquare,
+  Wallet,
+  Rocket,
+  LifeBuoy,
+  Clock,
+  FolderKanban,
+  Inbox,
+  Presentation,
+  Layers,
+  TrendingUp,
+} from "lucide-react";
+
+const iconMap = {
+  Globe,
+  ShoppingCart,
+  LayoutDashboard,
+  Users,
+  Workflow,
+  Wrench,
+  Target,
+  Smartphone,
+  MessagesSquare,
+  Wallet,
+  Rocket,
+  LifeBuoy,
+  Clock,
+  FolderKanban,
+  Inbox,
+  Presentation,
+  Layers,
+  TrendingUp,
+};
+
+export const getIcon = (name) => iconMap[name] || Layers;

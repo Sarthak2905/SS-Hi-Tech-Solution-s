@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@import "@fontsource-variable/plus-jakarta-sans";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Near-black surfaces */
+  --color-ink-950: #070707;
+  --color-ink-900: #101010;
+  --color-ink-800: #181818;
+  --color-ink-700: #262626;
+  --color-ink-600: #3a3a3a;
+
+  /* Text */
+  --color-paper: #fafaf7;
+  --color-paper-muted: #a8a8a3;
+
+  /* Lime accent */
+  --color-accent: #c3f53c;
+  --color-accent-strong: #aee02a;
+
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-ink-950 font-sans text-paper antialiased; }
+  h1, h2, h3 { @apply font-display tracking-tight; }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Subtle grid used behind hero/page headers. Apply to an absolutely positioned decorative div. */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, black 35%, transparent 80%);
+}
