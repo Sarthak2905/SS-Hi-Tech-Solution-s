@@ -35,7 +35,7 @@ export default function Footer() {
 
     return (
         <footer className="border-t border-ink-800 bg-ink-900">
-            <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+            <Container Container className="grid grid-cols-2 gap-x-6 gap-y-10 py-14 lg:grid-cols-4">
                 <div>
                     <Logo />
                     <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper-muted">

@@ -4,6 +4,7 @@ import SectionHeading from '../components/SectionHeading.jsx';
 import Card from '../components/Card.jsx';
 import Badge from '../components/Badge.jsx';
 import Button from '../components/Button.jsx';
+import SnapRow, { SnapItem } from '../components/SnapRow.jsx';
 import { packages } from '../data/packages.js';
 import { formatINR } from '../utils/format.js';
 import { cn } from '../utils/cn.js';
@@ -49,6 +50,7 @@ export function PackageCard({ pkg }) {
                     to={`/contact?package=${pkg.slug}`}
                     variant={pkg.isFeatured ? 'primary' : 'secondary'}
                     icon
+                    className="w-full"
                 >
                     Get a Custom Quote
                 </Button>
@@ -67,11 +69,13 @@ export default function PackagesSection({ showHeading = true }) {
                     description="Prices are indicative starting points, not fixed quotes. The final quotation depends on requirements, integrations, hosting, maintenance and complexity."
                 />
             )}
-            <div className="mt-12 grid items-stretch gap-5 md:grid-cols-2 xl:grid-cols-4">
+            <SnapRow label="Packages" className="mt-10 md:grid-cols-2 xl:grid-cols-4">
                 {packages.map((pkg) => (
-                    <PackageCard key={pkg.slug} pkg={pkg} />
+                    <SnapItem key={pkg.slug}>
+                        <PackageCard pkg={pkg} />
+                    </SnapItem>
                 ))}
-            </div>
+            </SnapRow>
         </Section>
     );
 }

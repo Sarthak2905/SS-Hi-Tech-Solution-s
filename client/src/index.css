@@ -5,18 +5,15 @@
   --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
 
-  /* Near-black surfaces */
   --color-ink-950: #070707;
   --color-ink-900: #101010;
   --color-ink-800: #181818;
   --color-ink-700: #262626;
   --color-ink-600: #3a3a3a;
 
-  /* Text */
   --color-paper: #fafaf7;
   --color-paper-muted: #a8a8a3;
 
-  /* Lime accent */
   --color-accent: #c3f53c;
   --color-accent-strong: #aee02a;
 
@@ -28,9 +25,28 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; }
-  body { @apply bg-ink-950 font-sans text-paper antialiased; }
-  h1, h2, h3 { @apply font-display tracking-tight; }
+  html {
+    /* Tells the browser this site is dark, so default text is light and auto-dark/light modes leave it alone */
+    color-scheme: dark;
+    background-color: var(--color-ink-950, #070707);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply font-sans antialiased;
+    background-color: var(--color-ink-950, #070707);
+    color: var(--color-paper, #fafaf7);
+    overflow-x: clip;
+  }
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+    text-wrap: balance;
+  }
+  a, button, summary {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  input, select, textarea { font-size: 16px; }
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
@@ -45,7 +61,6 @@
   }
 }
 
-/* Subtle grid used behind hero/page headers. Apply to an absolutely positioned decorative div. */
 .bg-grid {
   background-image:
     linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),

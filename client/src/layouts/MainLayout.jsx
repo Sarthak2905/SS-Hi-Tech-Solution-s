@@ -4,10 +4,11 @@ import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import PageLoader from '../components/PageLoader.jsx';
 import ScrollToTop from '../components/ScrollToTop.jsx';
+import MobileActionBar from '../components/MobileActionBar.jsx';
 
 export default function MainLayout() {
     return (
-        <div className="flex min-h-screen flex-col">
+        <div className="flex min-h-dvh flex-col">
             <ScrollToTop />
             <a
                 href="#main"
@@ -22,6 +23,7 @@ export default function MainLayout() {
                 </Suspense>
             </main>
             <Footer />
+            <MobileActionBar />
         </div>
     );
 }

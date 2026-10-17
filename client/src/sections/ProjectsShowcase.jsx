@@ -7,6 +7,7 @@ import Badge from '../components/Badge.jsx';
 import Button from '../components/Button.jsx';
 import { projects, projectCategories } from '../data/projects.js';
 import { cn } from '../utils/cn.js';
+import SnapRow, { SnapItem } from '../components/SnapRow.jsx';
 
 const statusTone = { Completed: 'accent', 'In Progress': 'warning', Concept: 'neutral' };
 
@@ -68,7 +69,12 @@ export default function ProjectsShowcase({ showHeading = true }) {
                 />
             )}
 
-            <div role="group" aria-label="Filter projects by category" className="mt-10 flex flex-wrap gap-2">
+            {/* Phone: one scrollable row of chips. Larger screens: wraps. */}
+            <div
+                role="group"
+                aria-label="Filter projects by category"
+                className="-mx-5 mt-10 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
                 {projectCategories.map((c) => (
                     <button
                         key={c}
@@ -76,7 +82,7 @@ export default function ProjectsShowcase({ showHeading = true }) {
                         aria-pressed={category === c}
                         onClick={() => setCategory(c)}
                         className={cn(
-                            'rounded-full border px-4 py-2 text-sm font-medium transition-colors',
+                            'min-h-11 shrink-0 whitespace-nowrap rounded-full border px-5 text-sm font-medium transition-colors',
                             category === c
                                 ? 'border-accent bg-accent text-black'
                                 : 'border-ink-600 text-paper hover:border-accent hover:text-accent'
@@ -88,17 +94,19 @@ export default function ProjectsShowcase({ showHeading = true }) {
             </div>
 
             {visible.length ? (
-                <div className="mt-8 grid gap-5 md:grid-cols-2">
+                <SnapRow label="Projects" className="mt-6 md:grid-cols-2">
                     {visible.map((p) => (
-                        <ProjectCard key={p.slug} project={p} />
+                        <SnapItem key={p.slug}>
+                            <ProjectCard project={p} />
+                        </SnapItem>
                     ))}
-                </div>
+                </SnapRow>
             ) : (
                 <p className="mt-8 text-paper-muted">No projects in this category yet.</p>
             )}
 
-            <div className="mt-10">
-                <Button to="/projects" variant="secondary" icon>
+            <div className="mt-8">
+                <Button to="/projects" variant="secondary" icon className="w-full sm:w-auto">
                     View All Projects
                 </Button>
             </div>

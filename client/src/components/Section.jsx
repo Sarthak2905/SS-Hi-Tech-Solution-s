@@ -10,7 +10,7 @@ const tones = {
 
 export default function Section({ tone = 'dark', id, className, containerClassName, children, ...props }) {
     return (
-        <section id={id} className={cn('py-16 sm:py-24', tones[tone], className)} {...props}>
+        <section id={id} className={cn('py-14 sm:py-24', tones[tone], className)} {...props}>
             <Container className={containerClassName}>{children}</Container>
         </section>
     );

@@ -7,6 +7,7 @@ import Reveal from '../components/Reveal.jsx';
 import ArrowBadge from '../components/ArrowBadge.jsx';
 import { services } from '../data/services.js';
 import { getIcon } from '../utils/icons.js';
+import { cn } from '../utils/cn.js';
 
 export function ServiceCard({ service }) {
     const Icon = getIcon(service.icon);
@@ -18,8 +19,8 @@ export function ServiceCard({ service }) {
             <h3 className="mt-5 text-xl font-semibold">{service.title}</h3>
             <p className="mt-2 text-paper-muted">{service.shortDescription}</p>
             <ul className="mt-5 space-y-2 text-sm">
-                {service.features.map((f) => (
-                    <li key={f} className="flex gap-2.5">
+                {service.features.map((f, i) => (
+                    <li key={f} className={cn('flex gap-2.5', i > 2 && 'hidden md:flex')}>
                         <Check size={16} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
                         <span>{f}</span>
                     </li>

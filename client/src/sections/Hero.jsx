@@ -53,12 +53,12 @@ export default function Hero() {
                 aria-hidden="true"
                 className="pointer-events-none absolute left-1/2 top-0 h-[360px] w-[680px] max-w-full -translate-x-1/2 rounded-full bg-accent/[0.06] blur-3xl"
             />
-            <Container className="relative pt-16 text-center sm:pt-24">
+            <Container className="relative pt-12 text-center sm:pt-24">
                 <p className="inline-flex items-center gap-2 text-sm font-medium text-accent">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
                     Websites, Software &amp; Automation
                 </p>
-                <h1 className="mx-auto mt-6 max-w-5xl text-[2.5rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-6xl lg:text-7xl">
+                <h1 className="mx-auto mt-5 max-w-5xl text-[clamp(2.25rem,10vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.035em]">
                     We Build Digital Solutions That Grow Your Business.
                 </h1>
                 <p className="mx-auto mt-6 max-w-2xl text-base text-paper-muted sm:text-lg">

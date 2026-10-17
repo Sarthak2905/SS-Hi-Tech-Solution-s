@@ -66,7 +66,7 @@ export default function Header() {
 
     return (
         // Fully opaque, always separated from the page by a lime hairline
-        <header className="sticky top-0 z-50 border-b border-accent/70 bg-ink-950">
+        <header className="sticky top-0 z-50 border-b border-accent/70 bg-ink-950 text-paper">
             <Container className="flex h-16 items-center justify-between lg:grid lg:h-[72px] lg:grid-cols-[1fr_auto_1fr]">
                 <Logo />
 
@@ -88,7 +88,7 @@ export default function Header() {
                     <button
                         ref={buttonRef}
                         type="button"
-                        className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-ink-700 text-paper hover:border-accent lg:hidden"
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-ink-700 text-paper hover:border-accent lg:hidden"
                         aria-expanded={open}
                         aria-controls="mobile-menu"
                         aria-label={open ? 'Close menu' : 'Open menu'}
